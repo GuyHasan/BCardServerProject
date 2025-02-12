@@ -85,4 +85,4 @@ const likeCard = async (cardId, userId) => {
 	}
 };
 
-module.exports = { createCard, getCards, getCardById, getMyCards, updateCard, deleteCard, changeBizNumber, likeCard };
+export { createCard, getCards, getCardById, getMyCards, updateCard, deleteCard, changeBizNumber, likeCard };

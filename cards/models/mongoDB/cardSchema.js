@@ -32,6 +32,6 @@ const cardSchema = new mongoose.Schema({
 	},
 });
 
-const MongoDbCardModel = mongoose.model("Card", cardSchema);
+const Card = mongoose.model("Card", cardSchema);
 
-export default MongoDbCardModel;
+export default Card;
