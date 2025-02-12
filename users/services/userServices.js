@@ -3,14 +3,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const dbType = process.env.DB;
-let cardService;
+let userService;
 
 switch (dbType) {
 	case "MongoDB":
-		cardService = mongoService;
+		userService = mongoService;
 		break;
 	default:
 		throw new Error(`Unsupported DB type: ${dbType}`);
 }
 
-export default cardService;
+export default userService;
