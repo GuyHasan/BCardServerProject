@@ -1,7 +1,7 @@
 import express from "express";
-import cardRouter from "../cards/routes/cardRouter";
-import usersRouter from "../users/routes/usersRouter";
-import { handleError } from "../utils/handleErrors";
+import cardRouter from "../cards/routes/cardRouter.js";
+import usersRouter from "../users/routes/usersRouter.js";
+import { handleError } from "../utils/handleErrors.js";
 
 const router = express.Router();
 

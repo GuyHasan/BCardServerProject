@@ -1,4 +1,4 @@
-import mongoService from "./mongoService";
+import mongoService from "./mongoDB/mongoService.js";
 import dotenv from "dotenv";
 
 dotenv.config();

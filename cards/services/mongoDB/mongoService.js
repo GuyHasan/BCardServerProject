@@ -1,4 +1,4 @@
-import Card from "../../models/cardSchema";
+import Card from "../../models/mongoDB/cardSchema.js";
 
 const createCard = async (newCard) => {
 	try {
@@ -85,4 +85,6 @@ const likeCard = async (cardId, userId) => {
 	}
 };
 
-export { createCard, getCards, getCardById, getMyCards, updateCard, deleteCard, changeBizNumber, likeCard };
+const mongoService = { createCard, getCards, getCardById, getMyCards, updateCard, deleteCard, changeBizNumber, likeCard };
+
+export default mongoService;

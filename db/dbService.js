@@ -3,11 +3,11 @@ import connectToLocalDb from "./mongodb/connectToMongoLocally.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const ENVIROMENT = process.env.ENVIROMENT;
+const ENVIRONMENT = process.env.ENVIRONMENT;
 
 const connectToDB = async () => {
 	try {
-		if (ENVIROMENT === "development") {
+		if (ENVIRONMENT === "development") {
 			await connectToLocalDb();
 		} else {
 			await connectToAtlasDb();

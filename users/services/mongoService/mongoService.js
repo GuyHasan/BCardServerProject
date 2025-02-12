@@ -1,7 +1,7 @@
-import { generateAuthToken } from "../../auth/providers/jwt";
-import { createError } from "../../utils/handleErrors";
-import { generatePassword, comparePasswords } from "../helpers/bcrypt";
-import User from "./mongoDB/User";
+import { generateAuthToken } from "../../auth/providers/jwt.js";
+import { createError } from "../../utils/handleErrors.js";
+import { generatePassword, comparePasswords } from "../helpers/bcrypt.js";
+import User from "../../models/mongoDB/userSchema.js";
 
 const registerUser = async (newUser) => {
 	try {
@@ -70,4 +70,6 @@ const deleteUser = async (userId) => {
 	}
 };
 
-export { registerUser, getUserById, loginUser, updateUser, deleteUser };
+const mongoService = { registerUser, getUserById, loginUser, updateUser, deleteUser };
+
+export default mongoService;

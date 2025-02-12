@@ -1,6 +1,6 @@
 import express from "express";
-import cardService from "../services/cardServices";
-import { handleError } from "../utils/errorHandler";
+import cardService from "../services/cardServices.js";
+import { handleError } from "../../utils/handleErrors.js";
 
 const router = express.Router();
 

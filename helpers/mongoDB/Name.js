@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { DEFAULT_VALIDATION } from "./mongooseValidators";
+import { DEFAULT_VALIDATION } from "./mongooseValidators.js";
 
 const Name = new mongoose.Schema({
 	first: DEFAULT_VALIDATION,

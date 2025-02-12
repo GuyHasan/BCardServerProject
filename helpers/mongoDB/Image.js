@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { URL, DEFAULT_VALIDATION } from "./mongooseValidators";
+import { URL, DEFAULT_VALIDATION } from "./mongooseValidators.js";
 
 const Image = new mongoose.Schema({
 	url: URL,

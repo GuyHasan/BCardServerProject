@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { DEFAULT_VALIDATION, PHONE, EMAIL, URL } from "../../../helpers/mongoDB/mongooseValidators";
-import Address from "../../../helpers/mongoDB/Address";
-import Image from "../../../helpers/mongoDB/Image";
+import { DEFAULT_VALIDATION, PHONE, EMAIL, URL } from "../../../helpers/mongoDB/mongooseValidators.js";
+import Address from "../../../helpers/mongoDB/Address.js";
+import Image from "../../../helpers/mongoDB/Image.js";
 
 const cardSchema = new mongoose.Schema({
 	title: DEFAULT_VALIDATION,
