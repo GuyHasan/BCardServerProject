@@ -61,6 +61,15 @@ const updateUser = async (userId, user) => {
 	}
 };
 
+const changeBusinessStatus = async (userId, status) => {
+	try {
+		let updatedUser = await User.findByIdAndUpdate(userId, { isBusiness: status }, { new: true });
+		return updatedUser;
+	} catch (err) {
+		return createError("Mongoose", err);
+	}
+};
+
 const deleteUser = async (userId) => {
 	try {
 		let user = await User.findByIdAndDelete(userId);
@@ -70,6 +79,6 @@ const deleteUser = async (userId) => {
 	}
 };
 
-const mongoService = { registerUser, getUserById, loginUser, updateUser, deleteUser, getUsers };
+const mongoService = { registerUser, getUserById, loginUser, updateUser, deleteUser, getUsers, changeBusinessStatus };
 
 export default mongoService;

@@ -1,4 +1,4 @@
-import morganLogger from "./loggers/morganLogger";
+import morganLogger from "./loggers/morganLogger.js";
 import config from "config";
 
 const logger = config.get("LOGGER");
