@@ -1,9 +1,8 @@
 import connectToAtlasDb from "./mongodb/connectToAtlas.js";
 import connectToLocalDb from "./mongodb/connectToMongoLocally.js";
-import dotenv from "dotenv";
+import config from "config";
 
-dotenv.config();
-const ENVIRONMENT = process.env.ENVIRONMENT;
+const ENVIRONMENT = config.get("ENVIRONMENT");
 
 const connectToDB = async () => {
 	try {

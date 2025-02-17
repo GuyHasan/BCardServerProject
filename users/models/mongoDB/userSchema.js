@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { PHONE, EMAIL } from "../../../helpers/mongoDB/mongooseValidators.js";
-import { Address } from "../../../helpers/mongoDB/Address.js";
-import { Name } from "../../../helpers/mongoDB/Name.js";
-import { Image } from "../../../helpers/mongoDB/Image.js";
+import Address from "../../../helpers/mongoDB/Address.js";
+import Name from "../../../helpers/mongoDB/Name.js";
+import Image from "../../../helpers/mongoDB/Image.js";
 
 const userSchema = new mongoose.Schema({
 	name: Name,

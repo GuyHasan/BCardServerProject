@@ -1,6 +1,7 @@
 import { createError, handleError } from "../utils/handleErrors.js";
 import { verifyAuthToken } from "./providers/jwt.js";
 import config from "config";
+
 const tokenGenerator = config.get("TOKEN_GENERATOR");
 
 const auth = (req, res, next) => {

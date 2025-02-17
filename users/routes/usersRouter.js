@@ -1,5 +1,6 @@
 import express from "express";
 import { handleError } from "../../utils/handleErrors.js";
+import userService from "../services/userServices.js";
 const router = express.Router();
 
 router.post("/", async (req, res) => {

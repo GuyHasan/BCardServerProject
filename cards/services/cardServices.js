@@ -1,8 +1,7 @@
 import mongoService from "./mongoDB/mongoService.js";
-import dotenv from "dotenv";
+import config from "config";
 
-dotenv.config();
-const dbType = process.env.DB;
+const dbType = config.get("DB");
 let cardService;
 
 switch (dbType) {

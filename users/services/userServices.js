@@ -1,8 +1,8 @@
-import mongoService from "./mongoDB/mongoService.js";
-import dotenv from "dotenv";
+import mongoService from "./mongoService/mongoService.js";
+import config from "config";
 
-dotenv.config();
-const dbType = process.env.DB;
+const dbType = config.get("DB");
+
 let userService;
 
 switch (dbType) {
