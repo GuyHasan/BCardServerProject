@@ -20,6 +20,7 @@ const cardSchema = new mongoose.Schema({
 		required: true,
 		min: 1000000,
 		max: 9999999,
+		unique: true,
 	},
 	likes: [String],
 	createAt: {

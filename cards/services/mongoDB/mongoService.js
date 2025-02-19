@@ -67,6 +67,11 @@ const changeBizNumber = async (cardId, newBizNumber) => {
 		let card = await Card.findByIdAndUpdate(cardId, { bizNumber: newBizNumber }, { new: true });
 		return card;
 	} catch (err) {
+		if (err.code === 11000) {
+			const error = new Error("Biz Number already exists, please choose a different one");
+			error.status = 400;
+			return createError("Mongoose", error);
+		}
 		return createError("Mongoose", err);
 	}
 };

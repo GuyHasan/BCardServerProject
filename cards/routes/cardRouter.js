@@ -93,4 +93,19 @@ router.delete("/:id", auth, async (req, res) => {
 	}
 });
 
+router.put("/:id/bizNumber", auth, async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { newBizNumber } = req.body;
+		const userInfo = req.user;
+		if (!userInfo.isAdmin) return handleError(res, 401, "Unauthorized, only admins can update bizNumber");
+		const card = await cardService.getCardById(id);
+		if (!card) return handleError(res, 404, "Card not found");
+		const updatedCard = await cardService.changeBizNumber(id, newBizNumber);
+		res.status(200).send(updatedCard);
+	} catch (error) {
+		handleError(res, 500, error.message);
+	}
+});
+
 export default router;
