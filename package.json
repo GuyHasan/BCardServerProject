@@ -6,7 +6,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node app.js",
 		"dev": "cross-env NODE_ENV=development nodemon app.js",
-		"prod": "cross-env NODE_ENV=production node app.js"
+		"prod": "cross-env NODE_ENV=production node app.js",
+		"clearDatabase": "node utils/clearDatabase.js"
 	},
 	"keywords": [],
 	"author": "",

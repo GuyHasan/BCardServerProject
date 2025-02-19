@@ -3,6 +3,7 @@ import User from "../users/models/mongoDB/userSchema.js";
 import Card from "../cards/models/mongoDB/cardSchema.js";
 import connectToDB from "../db/dbService.js";
 import { generateBizNum } from "../cards/helpers/generateBizNum.js";
+import { generatePassword } from "../users/helpers/bcrypt.js";
 
 const seedData = async () => {
 	const userCount = await User.countDocuments();
@@ -42,6 +43,9 @@ const seedData = async () => {
 				isAdmin: true,
 			},
 		];
+		for (let user of users) {
+			user.password = generatePassword(user.password);
+		}
 		const userIDs = await User.insertMany(users).then((users) => users.map((user) => user._id));
 
 		// Cards
