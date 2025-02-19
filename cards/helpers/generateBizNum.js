@@ -3,6 +3,7 @@ import Card from "../models/mongoDB/cardSchema.js";
 import { createError } from "../../utils/handleErrors.js";
 
 const generateBizNum = async () => {
+	let bizNum;
 	let cardCount = await Card.countDocuments();
 	if (cardCount === 8999999) {
 		const error = new Error("You Reached The Maximum Cards in Your System");

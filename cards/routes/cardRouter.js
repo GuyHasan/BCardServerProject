@@ -57,10 +57,10 @@ router.put("/:id", auth, async (req, res) => {
 		const userInfo = req.user;
 		const cardId = req.params.id;
 		const card = await cardService.getCardById(cardId);
-		if (card.user_id !== userInfo._id) return handleError(res, 401, "Unauthorized, you can only update your cards");
+		if (card.user_id.toString() !== userInfo._id) return handleError(res, 401, "Unauthorized, you can only update your cards");
 		const validateError = cardValidator(req.body);
 		if (validateError !== "") return handleError(res, 400, validateError);
-		const normalizedData = await normalizeCard(req.body, userInfo._id);
+		const normalizedData = await normalizeCard(req.body, userInfo._id, card);
 		const updatedCard = await cardService.updateCard(cardId, normalizedData);
 		res.status(200).send(updatedCard);
 	} catch (error) {
