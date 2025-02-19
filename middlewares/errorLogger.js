@@ -30,7 +30,7 @@ const errorLogger = (err, req, res) => {
 				console.error("An error occurred while writing to the log file:", error);
 			}
 		});
-		console.error(chalk.bgRedBright(`Error: ${err.status} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`));
+		console.error(chalk.bgRedBright(`Error: ${err.status} - ${err.message} - ${req.originalUrl} - ${req.method}`));
 	}
 };
 
