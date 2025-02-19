@@ -1,3 +1,4 @@
+import { createError } from "../../../utils/handleErrors.js";
 import Card from "../../models/mongoDB/cardSchema.js";
 
 const createCard = async (newCard) => {
@@ -24,7 +25,13 @@ const getCardById = async (cardId) => {
 		let card = await Card.findById(cardId);
 		return card;
 	} catch (err) {
-		return createError("Mongoose", err);
+		if (err.name === "CastError") {
+			const error = new Error("Invalid Card ID");
+			error.status = 400;
+			return createError("Mongoose", error);
+		} else {
+			return createError("Mongoose", err);
+		}
 	}
 };
 
