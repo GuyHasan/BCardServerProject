@@ -74,8 +74,7 @@ router.patch("/:id", auth, async (req, res) => {
 		const userInfo = req.user;
 		let { id } = req.params;
 		if (userInfo._id !== id) return handleError(res, 403, "Forbidden, you can only update your own profile");
-		let { isBusiness } = req.body;
-		let updatedUser = await userService.changeBusinessStatus(id, isBusiness);
+		let updatedUser = await userService.changeBusinessStatus(id);
 		res.status(200).send("isBusiness status updated: " + updatedUser.isBusiness);
 	} catch (error) {
 		handleError(res, 400, error.message);

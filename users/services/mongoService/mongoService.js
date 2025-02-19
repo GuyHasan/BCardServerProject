@@ -61,9 +61,16 @@ const updateUser = async (userId, user) => {
 	}
 };
 
-const changeBusinessStatus = async (userId, status) => {
+const changeBusinessStatus = async (userId) => {
 	try {
-		let updatedUser = await User.findByIdAndUpdate(userId, { isBusiness: status }, { new: true });
+		let user = await User.findById(userId);
+		if (!user) {
+			const error = new Error("User not found");
+			error.status = 404;
+			throw error;
+		}
+		user.isBusiness = !user.isBusiness;
+		let updatedUser = await user.save();
 		return updatedUser;
 	} catch (err) {
 		return createError("Mongoose", err);
