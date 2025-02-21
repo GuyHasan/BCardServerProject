@@ -59,7 +59,7 @@ These are some commands you can run to interact with the application:
 - **`npm start`**: Runs the app in production mode.
 - **`npm run dev`**: Starts the app in development mode using `nodemon` and sets `NODE_ENV=development` using `cross-env`. This allows for automatic server restarts on file changes. In this mode, the application connects to a local MongoDB instance running on your machine at `mongodb://localhost:27017/BCardServerProject`.
 - **`npm run prod`**: Starts the app in production mode with the environment variable `NODE_ENV=production`. In this mode, the application connects to MongoDB hosted on Atlas (a cloud MongoDB service), which is ideal for production environments.
-- **`npm run clearDatabase`**: Clears the database by executing the `clearDatabase.js` script located in the `utils` folder.
+- **⚠️ `npm run clearDatabase`**: **Caution:** This command will **clear** your database. It will remove all data in the database, so it should only be used with care during development or when you intend to reset the data.
 
 ## Project Structure
 ```
