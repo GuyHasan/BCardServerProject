@@ -1,6 +1,7 @@
 # Node.js Express User Management and Card System
 
 ## Description
+
 This project is a user registration and management system built with Node.js and Express. It provides authentication using JWT, password encryption, and a card management system where users can perform CRUD operations on cards.
 
 ## Setup Environment Variables
@@ -9,69 +10,55 @@ To get started with the project, you will need to create your own `.env` file.
 
 1. Copy the contents of the `.env.example` file to a new `.env` file in the root directory.
 2. Replace the placeholder values with the correct values for your environment:
-   - **ATLAS_CONNECTION_STRING**: Your MongoDB connection string.
-   - **SECRET_WORD**: A secret string used for JWT signing.
-   - **PORT**: The port to run your application on (default: `8181`).
+    - **ATLAS_CONNECTION_STRING**: Your MongoDB connection string.
+    - **SECRET_WORD**: A secret string used for JWT signing.
+    - **PORT**: The port to run your application on (default: `8181`).
 
 ## Features
-- User registration and login with JWT authentication
-- Password encryption using bcrypt
-- Card management system (CRUD operations)
-- MongoDB database integration
-- Input validation with Joi
-- Logging with Morgan
-- CORS support
-- Support for multiple environments (local and cloud/Atlas)
-- Proper HTTP response handling with status codes and error messages
-- Initial data setup for users and cards
-- Mongoose models for structured database management
-- Admins can update business numbers while ensuring uniqueness
-- Error logs (status code 400 and above) are saved in a log file with date-based filenames
-Here's how you can update your README with the new sections you requested:
 
-## Features
-- User registration and login with JWT authentication
-- Password encryption using bcrypt
-- Card management system (CRUD operations)
-- MongoDB database integration
-- Input validation with Joi
-- Logging with Morgan
-- CORS support
-- Support for multiple environments (local and cloud/Atlas)
-- Proper HTTP response handling with status codes and error messages
-- Initial data setup for users and cards
-- Mongoose models for structured database management
-- Admins can update business numbers while ensuring uniqueness
-- Error logs (status code 400 and above) are saved in a log file with date-based filenames
+-   User registration and login with JWT authentication
+-   Password encryption using bcrypt
+-   Card management system (CRUD operations)
+-   MongoDB database integration
+-   Input validation with Joi
+-   Logging with Morgan
+-   CORS support
+-   Support for multiple environments (local and cloud/Atlas)
+-   Proper HTTP response handling with status codes and error messages
+-   Initial data setup for users and cards
+-   Mongoose models for structured database management
+-   Admins can update business numbers while ensuring uniqueness
+-   Error logs (status code 400 and above) are saved in a log file with date-based filenames
 
 ## Libraries Used
 
 This Is the Libraries used for building the project:
 
-- **bcryptjs** (`^2.4.3`): Used for password hashing to ensure secure password storage.
-- **chalk** (`^5.4.1`): A library to style the terminal output, often used for logging in color.
-- **config** (`^3.3.12`): Provides a simple solution for managing application configuration in different environments.
-- **cors** (`^2.8.5`): Enables Cross-Origin Resource Sharing (CORS) to allow API calls from different origins.
-- **cross-env** (`^7.0.3`): Allows setting environment variables across different operating systems.
-- **dotenv** (`^16.4.7`): Loads environment variables from a `.env` file into `process.env`.
-- **express** (`^4.21.2`): A fast and minimal web framework for Node.js.
-- **joi** (`^17.13.3`): Used for schema validation of user input and API data.
-- **jsonwebtoken** (`^9.0.2`): Used to sign and verify JWT tokens for user authentication.
-- **lodash** (`^4.17.21`): A utility library providing various helpful functions for working with arrays, numbers, and objects.
-- **mongoose** (`^8.10.0`): An ODM (Object Data Modeling) library for MongoDB and Node.js, used for data modeling.
-- **morgan** (`^1.10.0`): HTTP request logger middleware for Node.js, often used for logging requests.
+-   **bcryptjs** (`^2.4.3`): Used for password hashing to ensure secure password storage.
+-   **chalk** (`^5.4.1`): A library to style the terminal output, often used for logging in color.
+-   **config** (`^3.3.12`): Provides a simple solution for managing application configuration in different environments.
+-   **cors** (`^2.8.5`): Enables Cross-Origin Resource Sharing (CORS) to allow API calls from different origins.
+-   **cross-env** (`^7.0.3`): Allows setting environment variables across different operating systems.
+-   **dotenv** (`^16.4.7`): Loads environment variables from a `.env` file into `process.env`.
+-   **express** (`^4.21.2`): A fast and minimal web framework for Node.js.
+-   **joi** (`^17.13.3`): Used for schema validation of user input and API data.
+-   **jsonwebtoken** (`^9.0.2`): Used to sign and verify JWT tokens for user authentication.
+-   **lodash** (`^4.17.21`): A utility library providing various helpful functions for working with arrays, numbers, and objects.
+-   **mongoose** (`^8.10.0`): An ODM (Object Data Modeling) library for MongoDB and Node.js, used for data modeling.
+-   **morgan** (`^1.10.0`): HTTP request logger middleware for Node.js, often used for logging requests.
 
 ## Command Usage
 
 These are some commands you can run to interact with the application:
 
-- **`npm test`**: This runs the test script, currently outputs an error message as no tests are specified.
-- **`npm start`**: Runs the app in production mode.
-- **`npm run dev`**: Starts the app in development mode using `nodemon` and sets `NODE_ENV=development` using `cross-env`. This allows for automatic server restarts on file changes. In this mode, the application connects to a local MongoDB instance running on your machine at `mongodb://localhost:27017/BCardServerProject`.
-- **`npm run prod`**: Starts the app in production mode with the environment variable `NODE_ENV=production`. In this mode, the application connects to MongoDB hosted on Atlas (a cloud MongoDB service), which is ideal for production environments.
-- **⚠️ `npm run clearDatabase`**: **Caution:** This command will **clear** your database. It will remove all data in the database, so it should only be used with care during development or when you intend to reset the data.
+-   **`npm test`**: This runs the test script, currently outputs an error message as no tests are specified.
+-   **`npm start`**: Runs the app in production mode.
+-   **`npm run dev`**: Starts the app in development mode using `nodemon` and sets `NODE_ENV=development` using `cross-env`. This allows for automatic server restarts on file changes. In this mode, the application connects to a local MongoDB instance running on your machine at `mongodb://localhost:27017/BCardServerProject`.
+-   **`npm run prod`**: Starts the app in production mode with the environment variable `NODE_ENV=production`. In this mode, the application connects to MongoDB hosted on Atlas (a cloud MongoDB service), which is ideal for production environments.
+-   **⚠️ `npm run clearDatabase`**: **Caution:** This command will **clear** your database. It will remove all data in the database, so it should only be used with care during development or when you intend to reset the data.
 
 ## Project Structure
+
 ```
 auth
     providers
@@ -152,19 +139,25 @@ package.json
 ## Installation
 
 1. Clone the repository:
+
 ```sh
 git clone <repository_url>
 cd <project_directory>
 ```
+
 2. Install dependencies:
+
 ```sh
 npm install
 ```
+
 3. Set up environment variables:
-   - Copy `.env.example` to `.env`
-   - Configure MongoDB connection and JWT secrets
+
+    - Copy `.env.example` to `.env`
+    - Configure MongoDB connection and JWT secrets
 
 4. Start the application:
+
 ```sh
 npm start
 ```
@@ -174,163 +167,176 @@ npm start
 **Note:** Authorization is performed via the received token from the login POST request. The token should be sent in the request headers as `x-auth-token`.
 
 ### User Endpoints
-| No. | URL | Method | Authorization | Action |
-|-----|-----|--------|--------------|--------|
-| 1 | /users | POST | All | Register user |
-| 2 | /users/login | POST | All | Login user |
-| 3 | /users | GET | Admin | Get all users |
-| 4 | /users/:id | GET | User/Admin | Get user by ID |
-| 5 | /users/:id | PUT | User | Edit user |
-| 6 | /users/:id | PATCH | User | Change business status |
-| 7 | /users/:id | DELETE | User/Admin | Delete user |
+
+| No. | URL          | Method | Authorization | Action                 |
+| --- | ------------ | ------ | ------------- | ---------------------- |
+| 1   | /users       | POST   | All           | Register user          |
+| 2   | /users/login | POST   | All           | Login user             |
+| 3   | /users       | GET    | Admin         | Get all users          |
+| 4   | /users/:id   | GET    | User/Admin    | Get user by ID         |
+| 5   | /users/:id   | PUT    | User          | Edit user              |
+| 6   | /users/:id   | PATCH  | User          | Change business status |
+| 7   | /users/:id   | DELETE | User/Admin    | Delete user            |
 
 ### Card Endpoints
-| No. | URL | Method | Authorization | Action |
-|-----|-----|--------|--------------|--------|
-| 1 | /cards | GET | All | Get all cards |
-| 2 | /cards/my-cards | GET | Registered User | Get user cards |
-| 3 | /cards/:id | GET | All | Get specific card |
-| 4 | /cards | POST | Business User | Create new card |
-| 5 | /cards/:id | PUT | Owner | Edit card |
-| 6 | /cards/:id | PATCH | Registered User | Like card |
-| 7 | /cards/:id | DELETE | Owner/Admin | Delete card |
+
+| No. | URL             | Method | Authorization   | Action            |
+| --- | --------------- | ------ | --------------- | ----------------- |
+| 1   | /cards          | GET    | All             | Get all cards     |
+| 2   | /cards/my-cards | GET    | Registered User | Get user cards    |
+| 3   | /cards/:id      | GET    | All             | Get specific card |
+| 4   | /cards          | POST   | Business User   | Create new card   |
+| 5   | /cards/:id      | PUT    | Owner           | Edit card         |
+| 6   | /cards/:id      | PATCH  | Registered User | Like card         |
+| 7   | /cards/:id      | DELETE | Owner/Admin     | Delete card       |
 
 ## API Request Formats
 
 ### Register User
+
 **Notes:**
-- "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&*-
-- "phone" must be a standard Israeli phone number
-- "email" must be a standard email
-- "image/url" must be a standard URL
+
+-   "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&\*-
+-   "phone" must be a standard Israeli phone number
+-   "email" must be a standard email
+-   "image/url" must be a standard URL
+
 ```json
 {
-  "name": {
-    "first": "John",
-    "middle": "M.",
-    "last": "Doe"
-  },
-  "phone": "1234567890",
-  "email": "john@example.com",
-  "password": "SecurePass123!",
-  "image": {
-    "url": "https://example.com/image.jpg",
-    "alt": "Profile image"
-  },
-  "address": {
-    "state": "CA",
-    "country": "USA",
-    "city": "Los Angeles",
-    "street": "Main St",
-    "houseNumber": 10,
-    "zip": 90001
-  },
-  "isBusiness": false
+	"name": {
+		"first": "John",
+		"middle": "M.",
+		"last": "Doe"
+	},
+	"phone": "1234567890",
+	"email": "john@example.com",
+	"password": "SecurePass123!",
+	"image": {
+		"url": "https://example.com/image.jpg",
+		"alt": "Profile image"
+	},
+	"address": {
+		"state": "CA",
+		"country": "USA",
+		"city": "Los Angeles",
+		"street": "Main St",
+		"houseNumber": 10,
+		"zip": 90001
+	},
+	"isBusiness": false
 }
 ```
 
 ### Login User
+
 **Notes:**
-- "email" must be a standard email
-- "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&*-
+
+-   "email" must be a standard email
+-   "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&\*-
+
 ```json
 {
-  "email": "john@example.com",
-  "password": "SecurePass123!"
+	"email": "john@example.com",
+	"password": "SecurePass123!"
 }
 ```
-
 
 ### Update User
+
 **Notes:**
-- "phone" must be a standard Israeli phone number
-- "image/url" must be a standard URL
-- You will need to provide a token to get an answer from this API
-- You need to be the registered user or Admin to get an answer from this API
+
+-   "phone" must be a standard Israeli phone number
+-   "image/url" must be a standard URL
+-   You will need to provide a token to get an answer from this API
+-   You need to be the registered user or Admin to get an answer from this API
+
 ```json
 {
-  "name": {
-    "first": "John Updated",
-    "middle": "M.",
-    "last": "Doe"
-  },
-  "phone": "0987654321",
-  "image": {
-    "url": "https://example.com/new-image.jpg",
-    "alt": "Updated profile image"
-  },
-  "address": {
-    "state": "NY",
-    "country": "USA",
-    "city": "New York",
-    "street": "Broadway",
-    "houseNumber": 50,
-    "zip": 10001
-  }
+	"name": {
+		"first": "John Updated",
+		"middle": "M.",
+		"last": "Doe"
+	},
+	"phone": "0987654321",
+	"image": {
+		"url": "https://example.com/new-image.jpg",
+		"alt": "Updated profile image"
+	},
+	"address": {
+		"state": "NY",
+		"country": "USA",
+		"city": "New York",
+		"street": "Broadway",
+		"houseNumber": 50,
+		"zip": 10001
+	}
 }
 ```
-
 
 ### Create Card
+
 **Notes:**
-- "phone" must be a standard Israeli phone number
-- "email" must be a standard email
-- "web" must be a standard URL
-- "image/url" must be a standard URL
-- You will need to provide a token to get an answer from this API
-- You will need to be a Business type user to get an answer from this API
+
+-   "phone" must be a standard Israeli phone number
+-   "email" must be a standard email
+-   "web" must be a standard URL
+-   "image/url" must be a standard URL
+-   You will need to provide a token to get an answer from this API
+-   You will need to be a Business type user to get an answer from this API
+
 ```json
 {
-  "title": "Business Card",
-  "subtitle": "Your Best Partner",
-  "description": "A great business card for professionals.",
-  "phone": "1234567890",
-  "email": "business@example.com",
-  "web": "https://business.com",
-  "image": {
-    "url": "https://example.com/card.jpg",
-    "alt": "Business card image"
-  },
-  "address": {
-    "state": "CA",
-    "country": "USA",
-    "city": "San Francisco",
-    "street": "Market St",
-    "houseNumber": 100,
-    "zip": 94103
-  }
+	"title": "Business Card",
+	"subtitle": "Your Best Partner",
+	"description": "A great business card for professionals.",
+	"phone": "1234567890",
+	"email": "business@example.com",
+	"web": "https://business.com",
+	"image": {
+		"url": "https://example.com/card.jpg",
+		"alt": "Business card image"
+	},
+	"address": {
+		"state": "CA",
+		"country": "USA",
+		"city": "San Francisco",
+		"street": "Market St",
+		"houseNumber": 100,
+		"zip": 94103
+	}
 }
 ```
-
 
 ### Edit Card
+
 **Notes:**
-- "phone" must be a standard Israeli phone number
-- "email" must be a standard email
-- "web" must be a standard URL
-- "image/url" must be a standard URL
-- You will need to provide a token to get an answer from this API
-- You must be the user who created the card or an admin in order to update the business card
+
+-   "phone" must be a standard Israeli phone number
+-   "email" must be a standard email
+-   "web" must be a standard URL
+-   "image/url" must be a standard URL
+-   You will need to provide a token to get an answer from this API
+-   You must be the user who created the card or an admin in order to update the business card
+
 ```json
 {
-  "title": "Updated Business Card",
-  "subtitle": "New Subtitle",
-  "description": "Updated description of the business card.",
-  "phone": "1234567890",
-  "email": "business@example.com",
-  "web": "https://business.com",
-  "image": {
-    "url": "https://example.com/updated-card.jpg",
-    "alt": "Updated business card image"
-  },
-  "address": {
-    "state": "CA",
-    "country": "USA",
-    "city": "San Francisco",
-    "street": "Market St",
-    "houseNumber": 100,
-    "zip": 94103
-  }
+	"title": "Updated Business Card",
+	"subtitle": "New Subtitle",
+	"description": "Updated description of the business card.",
+	"phone": "1234567890",
+	"email": "business@example.com",
+	"web": "https://business.com",
+	"image": {
+		"url": "https://example.com/updated-card.jpg",
+		"alt": "Updated business card image"
+	},
+	"address": {
+		"state": "CA",
+		"country": "USA",
+		"city": "San Francisco",
+		"street": "Market St",
+		"houseNumber": 100,
+		"zip": 94103
+	}
 }
 ```
-
