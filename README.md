@@ -187,6 +187,69 @@ npm start
 }
 ```
 
+
+### Update User
+**Notes:**
+- "phone" must be a standard Israeli phone number
+- "image/url" must be a standard URL
+- You will need to provide a token to get an answer from this API
+- You need to be the registered user or Admin to get an answer from this API
+```json
+{
+  "name": {
+    "first": "John Updated",
+    "middle": "M.",
+    "last": "Doe"
+  },
+  "phone": "0987654321",
+  "image": {
+    "url": "https://example.com/new-image.jpg",
+    "alt": "Updated profile image"
+  },
+  "address": {
+    "state": "NY",
+    "country": "USA",
+    "city": "New York",
+    "street": "Broadway",
+    "houseNumber": 50,
+    "zip": 10001
+  }
+}
+```
+
+
+### Create Card
+**Notes:**
+- "phone" must be a standard Israeli phone number
+- "email" must be a standard email
+- "web" must be a standard URL
+- "image/url" must be a standard URL
+- You will need to provide a token to get an answer from this API
+- You will need to be a Business type user to get an answer from this API
+```json
+{
+  "title": "Business Card",
+  "subtitle": "Your Best Partner",
+  "description": "A great business card for professionals.",
+  "phone": "1234567890",
+  "email": "business@example.com",
+  "web": "https://business.com",
+  "image": {
+    "url": "https://example.com/card.jpg",
+    "alt": "Business card image"
+  },
+  "address": {
+    "state": "CA",
+    "country": "USA",
+    "city": "San Francisco",
+    "street": "Market St",
+    "houseNumber": 100,
+    "zip": 94103
+  }
+}
+```
+
+
 ### Edit Card
 **Notes:**
 - "phone" must be a standard Israeli phone number
