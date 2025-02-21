@@ -3,6 +3,16 @@
 ## Description
 This project is a user registration and management system built with Node.js and Express. It provides authentication using JWT, password encryption, and a card management system where users can perform CRUD operations on cards.
 
+## Setup Environment Variables
+
+To get started with the project, you will need to create your own `.env` file.
+
+1. Copy the contents of the `.env.example` file to a new `.env` file in the root directory.
+2. Replace the placeholder values with the correct values for your environment:
+   - **ATLAS_CONNECTION_STRING**: Your MongoDB connection string.
+   - **SECRET_WORD**: A secret string used for JWT signing.
+   - **PORT**: The port to run your application on (default: `8181`).
+
 ## Features
 - User registration and login with JWT authentication
 - Password encryption using bcrypt
