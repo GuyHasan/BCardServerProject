@@ -17,6 +17,49 @@ This project is a user registration and management system built with Node.js and
 - Mongoose models for structured database management
 - Admins can update business numbers while ensuring uniqueness
 - Error logs (status code 400 and above) are saved in a log file with date-based filenames
+Here's how you can update your README with the new sections you requested:
+
+## Features
+- User registration and login with JWT authentication
+- Password encryption using bcrypt
+- Card management system (CRUD operations)
+- MongoDB database integration
+- Input validation with Joi
+- Logging with Morgan
+- CORS support
+- Support for multiple environments (local and cloud/Atlas)
+- Proper HTTP response handling with status codes and error messages
+- Initial data setup for users and cards
+- Mongoose models for structured database management
+- Admins can update business numbers while ensuring uniqueness
+- Error logs (status code 400 and above) are saved in a log file with date-based filenames
+
+## Libraries Used
+
+This Is the Libraries used for building the project:
+
+- **bcryptjs** (`^2.4.3`): Used for password hashing to ensure secure password storage.
+- **chalk** (`^5.4.1`): A library to style the terminal output, often used for logging in color.
+- **config** (`^3.3.12`): Provides a simple solution for managing application configuration in different environments.
+- **cors** (`^2.8.5`): Enables Cross-Origin Resource Sharing (CORS) to allow API calls from different origins.
+- **cross-env** (`^7.0.3`): Allows setting environment variables across different operating systems.
+- **dotenv** (`^16.4.7`): Loads environment variables from a `.env` file into `process.env`.
+- **express** (`^4.21.2`): A fast and minimal web framework for Node.js.
+- **joi** (`^17.13.3`): Used for schema validation of user input and API data.
+- **jsonwebtoken** (`^9.0.2`): Used to sign and verify JWT tokens for user authentication.
+- **lodash** (`^4.17.21`): A utility library providing various helpful functions for working with arrays, numbers, and objects.
+- **mongoose** (`^8.10.0`): An ODM (Object Data Modeling) library for MongoDB and Node.js, used for data modeling.
+- **morgan** (`^1.10.0`): HTTP request logger middleware for Node.js, often used for logging requests.
+
+## Command Usage
+
+These are some commands you can run to interact with the application:
+
+- **`npm test`**: This runs the test script, currently outputs an error message as no tests are specified.
+- **`npm start`**: Runs the app in production mode.
+- **`npm run dev`**: Starts the app in development mode using `nodemon` and sets `NODE_ENV=development` using `cross-env`. This allows for automatic server restarts on file changes. In this mode, the application connects to a local MongoDB instance running on your machine at `mongodb://localhost:27017/BCardServerProject`.
+- **`npm run prod`**: Starts the app in production mode with the environment variable `NODE_ENV=production`. In this mode, the application connects to MongoDB hosted on Atlas (a cloud MongoDB service), which is ideal for production environments.
+- **`npm run clearDatabase`**: Clears the database by executing the `clearDatabase.js` script located in the `utils` folder.
 
 ## Project Structure
 ```
