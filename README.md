@@ -180,15 +180,16 @@ npm start
 
 ### Card Endpoints
 
-| No. | URL             | Method | Authorization   | Action            |
-| --- | --------------- | ------ | --------------- | ----------------- |
-| 1   | /cards          | GET    | All             | Get all cards     |
-| 2   | /cards/my-cards | GET    | Registered User | Get user cards    |
-| 3   | /cards/:id      | GET    | All             | Get specific card |
-| 4   | /cards          | POST   | Business User   | Create new card   |
-| 5   | /cards/:id      | PUT    | Owner           | Edit card         |
-| 6   | /cards/:id      | PATCH  | Registered User | Like card         |
-| 7   | /cards/:id      | DELETE | Owner/Admin     | Delete card       |
+| No. | URL                  | Method | Authorization   | Action                |
+| --- | -------------------- | ------ | --------------- | --------------------- |
+| 1   | /cards               | GET    | All             | Get all cards         |
+| 2   | /cards/my-cards      | GET    | Registered User | Get user cards        |
+| 3   | /cards/:id           | GET    | All             | Get specific card     |
+| 4   | /cards               | POST   | Business User   | Create new card       |
+| 5   | /cards/:id           | PUT    | Owner           | Edit card             |
+| 6   | /cards/:id           | PATCH  | Registered User | Like card             |
+| 7   | /cards/:id           | DELETE | Owner/Admin     | Delete card           |
+| 8   | /cards/:id/bizNumber | PATCH  | Admin           | Update card bizNumber |
 
 ## API Request Formats
 
@@ -338,5 +339,19 @@ npm start
 		"houseNumber": 100,
 		"zip": 94103
 	}
+}
+```
+
+### Update Card bizNumber
+
+**Notes:**
+
+-   Only Admins can change card bizNumbers.
+-   The bizNumber must be unique as it cannot be taken by another card.
+-   bizNumber must be 7 digit number.
+
+```json
+{
+	"bizNumber": 1111111
 }
 ```
