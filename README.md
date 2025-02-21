@@ -1,4 +1,4 @@
-# Node.js Express User Management and Card System
+# BCard Server
 
 ## Description
 
