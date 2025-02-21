@@ -14,6 +14,52 @@ To get started with the project, you will need to create your own `.env` file.
     - **SECRET_WORD**: A secret string used for JWT signing.
     - **PORT**: The port to run your application on (default: `8181`).
 
+## CORS Middleware
+
+Cross-Origin Resource Sharing (CORS) is a security feature implemented by web browsers to control how resources on your server can be accessed from different origins (domains, protocols, or ports). In this project, CORS is used to allow or restrict the types of requests that can be made to the server.
+
+### Default CORS Setup
+
+The CORS configuration for this project is handled in the `cors.js` file located in the `./middlewares` folder. By default, the middleware allows requests from certain origins, but you may need to add new addresses (such as from a different frontend domain or testing environment).
+
+### How to Add a New Address to CORS
+
+If you need to allow a new address (domain) to access your backend, you can modify the CORS configuration in the `cors.js` file.
+
+1. **Open the `cors.js` file** in the `./middlewares` folder.
+2. **Locate the CORS configuration**, which typically looks like this:
+
+    ```javascript
+    const corsOptions = {
+    	origin: ["http://localhost:3000", "https://your-domain.com"], // List of allowed origins
+    	methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    	allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    };
+    ```
+
+3. **Add the new address** (origin) to the `origin` array in the configuration. For example, if you want to add `https://new-frontend.com` as an allowed origin:
+
+    ```javascript
+    const corsOptions = {
+    	origin: ["http://localhost:3000", "https://your-domain.com", "https://new-frontend.com"], // New address added
+    	methods: ["GET", "POST", "PUT", "DELETE"],
+    	allowedHeaders: ["Content-Type", "Authorization"],
+    };
+    ```
+
+4. **Save the file** after making the changes.
+
+### Restart the Server
+
+After modifying the CORS configuration, restart the server to apply the new settings:
+
+-   If you're in development mode: `npm run dev`
+-   If you're in production mode: `npm run prod`
+
+### Test the New CORS Setting
+
+To ensure the new address is properly allowed, test making a request from the newly added origin (e.g., `https://new-frontend.com`). If everything is set up correctly, the request should succeed without any CORS-related errors.
+
 ## Features
 
 -   User registration and login with JWT authentication
