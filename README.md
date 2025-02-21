@@ -191,7 +191,9 @@ npm start
 | 7   | /cards/:id           | DELETE | Owner/Admin     | Delete card           |
 | 8   | /cards/:id/bizNumber | PATCH  | Admin           | Update card bizNumber |
 
-## API Request Formats
+# API Request Formats
+
+## Users
 
 ### Register User
 
@@ -242,6 +244,20 @@ npm start
 }
 ```
 
+### Get All Users
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
+-   You will need to be Admin type user to get an answer from this api
+
+### Get User By Id
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
+-   You will need to be the registered user or Admin type user to get an answer from this api
+
 ### Update User
 
 **Notes:**
@@ -249,7 +265,7 @@ npm start
 -   "phone" must be a standard Israeli phone number
 -   "image/url" must be a standard URL
 -   You will need to provide a token to get an answer from this API
--   You need to be the registered user or Admin to get an answer from this API
+-   You need to be the registered user to get an answer from this API
 
 ```json
 {
@@ -273,6 +289,40 @@ npm start
 	}
 }
 ```
+
+### Patch User's Business Status
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
+-   You will need to be the registered user to get an answer from this api
+
+### Delete User
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
+-   You will need to be the registered user or Admin type user to get an answer from this api
+
+## Cards
+
+### Get All Cards
+
+**Notes:**
+
+-   You won't need to provide a token or to be a registered user to get an answer from this api
+
+### Get Card By Id
+
+**Notes:**
+
+-   You won't need to provide a token or to be a registered user to get an answer from this api
+
+### Get All My Cards
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
 
 ### Create Card
 
@@ -308,7 +358,7 @@ npm start
 }
 ```
 
-### Edit Card
+### Update Card
 
 **Notes:**
 
@@ -341,6 +391,20 @@ npm start
 	}
 }
 ```
+
+### Like/Unlike Card
+
+**Notes:**
+
+-   Please note that this EndPoint will unlike an already liked card
+-   You will need to provide a token to get an answer from this api
+
+### Delete Card
+
+**Notes:**
+
+-   You will need to provide a token to get an answer from this api
+-   You must be the user who created the card or an admin in order to delete the business card
 
 ### Update Card bizNumber
 
