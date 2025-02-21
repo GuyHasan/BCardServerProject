@@ -11,6 +11,12 @@ This project is a user registration and management system built with Node.js and
 - Input validation with Joi
 - Logging with Morgan
 - CORS support
+- Support for multiple environments (local and cloud/Atlas)
+- Proper HTTP response handling with status codes and error messages
+- Initial data setup for users and cards
+- Mongoose models for structured database management
+- Admins can update business numbers while ensuring uniqueness
+- Error logs (status code 400 and above) are saved in a log file with date-based filenames
 
 ## Project Structure
 ```
@@ -112,29 +118,103 @@ npm start
 
 ## API Endpoints
 
-### Authentication
-- `POST /users/register` - Register a new user
-- `POST /users/login` - Login and receive JWT token
+**Note:** Authorization is performed via the received token from the login POST request. The token should be sent in the request headers as `x-auth-token`.
 
-### Cards
-- `POST /cards` - Create a new card
-- `GET /cards` - Retrieve all cards
-- `GET /cards/:id` - Get a single card
-- `PUT /cards/:id` - Update a card
-- `DELETE /cards/:id` - Delete a card
+### User Endpoints
+| No. | URL | Method | Authorization | Action |
+|-----|-----|--------|--------------|--------|
+| 1 | /users | POST | All | Register user |
+| 2 | /users/login | POST | All | Login user |
+| 3 | /users | GET | Admin | Get all users |
+| 4 | /users/:id | GET | User/Admin | Get user by ID |
+| 5 | /users/:id | PUT | User | Edit user |
+| 6 | /users/:id | PATCH | User | Change business status |
+| 7 | /users/:id | DELETE | User/Admin | Delete user |
 
-## Technologies Used
-- Node.js
-- Express.js
-- MongoDB (Mongoose ODM)
-- JWT for authentication
-- bcrypt for password hashing
-- Joi for validation
-- Morgan for logging
+### Card Endpoints
+| No. | URL | Method | Authorization | Action |
+|-----|-----|--------|--------------|--------|
+| 1 | /cards | GET | All | Get all cards |
+| 2 | /cards/my-cards | GET | Registered User | Get user cards |
+| 3 | /cards/:id | GET | All | Get specific card |
+| 4 | /cards | POST | Business User | Create new card |
+| 5 | /cards/:id | PUT | Owner | Edit card |
+| 6 | /cards/:id | PATCH | Registered User | Like card |
+| 7 | /cards/:id | DELETE | Owner/Admin | Delete card |
 
-## Contributing
-Feel free to open issues or submit pull requests.
+## API Request Formats
 
-## License
-This project is licensed under the MIT License.
+### Register User
+**Notes:**
+- "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&*-
+- "phone" must be a standard Israeli phone number
+- "email" must be a standard email
+- "image/url" must be a standard URL
+```json
+{
+  "name": {
+    "first": "John",
+    "middle": "M.",
+    "last": "Doe"
+  },
+  "phone": "1234567890",
+  "email": "john@example.com",
+  "password": "SecurePass123!",
+  "image": {
+    "url": "https://example.com/image.jpg",
+    "alt": "Profile image"
+  },
+  "address": {
+    "state": "CA",
+    "country": "USA",
+    "city": "Los Angeles",
+    "street": "Main St",
+    "houseNumber": 10,
+    "zip": 90001
+  },
+  "isBusiness": false
+}
+```
+
+### Login User
+**Notes:**
+- "email" must be a standard email
+- "password" must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following characters !@#$%^&*-
+```json
+{
+  "email": "john@example.com",
+  "password": "SecurePass123!"
+}
+```
+
+### Edit Card
+**Notes:**
+- "phone" must be a standard Israeli phone number
+- "email" must be a standard email
+- "web" must be a standard URL
+- "image/url" must be a standard URL
+- You will need to provide a token to get an answer from this API
+- You must be the user who created the card or an admin in order to update the business card
+```json
+{
+  "title": "Updated Business Card",
+  "subtitle": "New Subtitle",
+  "description": "Updated description of the business card.",
+  "phone": "1234567890",
+  "email": "business@example.com",
+  "web": "https://business.com",
+  "image": {
+    "url": "https://example.com/updated-card.jpg",
+    "alt": "Updated business card image"
+  },
+  "address": {
+    "state": "CA",
+    "country": "USA",
+    "city": "San Francisco",
+    "street": "Market St",
+    "houseNumber": 100,
+    "zip": 94103
+  }
+}
+```
 
